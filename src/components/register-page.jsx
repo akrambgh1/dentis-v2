@@ -30,7 +30,7 @@ export default function Register() {
       }
       toast.success("user registered successfully",{position:"top-center",});
       setTimeout(() => {
-        navigate("/dentist/Profile/");
+        navigate("/Profile");
       }, 1000);
       
     } catch (error) {
