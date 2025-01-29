@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "./navbar";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -33,7 +33,7 @@ export default function Login() {
       <section className="w-screen h-screen bg-gray-900">
         <Nav />
         <div className="flex flex-col items-center justify-center h-[80%]">
-          <h1 className="text-white text-xl text-gray-500 mb-6">Login</h1>
+          <h1 className="text-white text-xl mb-6">Login</h1>
           <form
             onSubmit={handleLogin}
             className="flex flex-col w-[15rem] items-center">
