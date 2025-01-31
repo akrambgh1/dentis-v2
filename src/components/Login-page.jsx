@@ -37,12 +37,11 @@ export default function Login() {
           onSubmit={handleLogin}
           className="w-[80%] h-full flex flex-col justify-center gap-[2rem] p-4 max-[450px]:w-full md:w-[70%] lg:w-[60%] lg:p-8 xl:w-[30%]"
         >
-          <h1 className="font-bold text-[2rem]">
-            Hey ,<br className="md:hidden" />
-            Login now
+          <h1 className="font-bold text-[2rem] text-[#181940]">
+            Hey, welcom back!
           </h1>
           <h3 className="text-[#747474]">
-            No account? <Link to="/Register">Register here.</Link>
+            No account ? <Link className="text-[#181940] cursor-pointer" to="/Register">Register here.</Link>
           </h3>
           <input
             type="text"
@@ -58,7 +57,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="relative h-12 overflow-hidden rounded bg-neutral-950 px-5 py-2.5 text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2">
+          <button className="relative h-12 overflow-hidden rounded bg-[#181940] px-5 py-2.5 text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2">
             <span className="relative">Log In</span>
           </button>
 

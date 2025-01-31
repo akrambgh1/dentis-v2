@@ -42,7 +42,7 @@ const handleGRegister = async (e) => {
   return (
     <button
       onClick={handleGRegister}
-      className="cursor-pointer text-black font-bold flex gap-2 items-center justify-center bg-[#eee] px-4 py-2 rounded-lg text-sm hover:bg-zinc-300 transition-all ease-in duration-200"
+      className="cursor-pointer text-[#181940] font-bold flex gap-4 items-center justify-center bg-[#eee] px-4 py-2 rounded-lg text-sm hover:bg-zinc-300 transition-all ease-in duration-200"
     >
       <svg
         viewBox="0 0 48 48"

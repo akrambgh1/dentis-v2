@@ -52,17 +52,19 @@ export default function Profile() {
     <>
       <Nav />
       <section className="w-screen h-auto bg-[#181940] relative flex flex-col items-center justify-center mb-[5rem]">
-        <div className="bg-[#181940] w-full h-[40vh]"></div>
-
-        <div className="w-full h-full z-0 flex gap-[2rem] max-lg:flex-col max-lg:items-center ">
-          {/* Sidebar */}
-          {/* 
-        <div className="h-[40vh] max-md:h-auto w-[30%] p-4 flex flex-col gap-[1rem] items-center bg-white rounded-[5px] shadow max-lg:w-full">
+        <div className="bg-[#181940] w-full h-[20vh] flex flex-col items-center justify-center">
           <img
             className="rounded-full h-24 w-24 object-cover"
             src={userDetails?.photo || "/default-photo.png"}
             alt="user"
           />
+        </div>
+
+        <div className="w-full h-full z-0 flex gap-[2rem] max-lg:flex-col max-lg:items-center ">
+          {/* Sidebar */}
+          {/* 
+        <div className="h-[40vh] max-md:h-auto w-[30%] p-4 flex flex-col gap-[1rem] items-center bg-white rounded-[5px] shadow max-lg:w-full">
+          
           <h1 className="text-xl mb-6 max-md:text-[1rem]">
             Welcome, {userDetails?.Firstname || "Guest"}{" "}
             {userDetails?.Lastname || ""}
@@ -71,7 +73,7 @@ export default function Profile() {
 
           {/* Main Content */}
 
-          <div className="bg-white w-full max-lg:w-full h-full rounded-t-[25px] flex flex-col">
+          <div className="bg-white w-full max-lg:w-full h-full rounded-t-[5px] flex flex-col">
             {/* Tabs Navigation */}
             <div className="w-full p-4 border-b border-gray-300">
               <div className="flex space-x-4">
@@ -111,7 +113,7 @@ export default function Profile() {
             </div>
 
             {/* Tabs Content */}
-            <div className="max-md:h-full h-[70%] w-full py-8 px-8 max-md:p-4">
+            <div className="max-md:h-[60vh] w-full py-8 px-8 max-md:p-4">
               {activeTab === "tab1" && (
                 <div className="grid grid-cols-2 gap-8 h-auto max-md:flex max-md:flex-col">
                   <div className="flex flex-col gap-2">
