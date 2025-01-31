@@ -18,10 +18,10 @@ export default function Nav() {
 
       {/* mobile navbar  */}
 
-      <section className="absolute bottom-0 bg-[#fff] w-full py-[1rem] md:hidden flex justify-between items-center border-t-1 border-[#e8e8e8] px-[2rem]">
+      <section className="fixed bottom-0 left-0 bg-[#fff] w-full py-[1rem] md:hidden flex justify-between items-center border-t-1 border-[#e8e8e8] px-[2rem] z-10">
         <div className="flex flex-col gap-[.25rem] items-center justify-center">
           <House stroke="#111238" size={21}/>
-          <h1 className="text-[#111238] font-[500]"><Link to="/Profile">Home</Link></h1>
+          <h1 className="text-[#111238] font-[500]"><Link to="/">Home</Link></h1>
         </div>
 
         <div className="flex flex-col gap-[.25rem]  items-center justify-center">

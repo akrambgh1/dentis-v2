@@ -7,36 +7,43 @@ import { auth } from "./firebase";
 import { toast } from "react-toastify";
 import GoogleButton from "./google";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success("user Login successfully", { position: "top-center" });
+      toast.success("User logged in successfully", { position: "top-center" });
       setTimeout(() => {
         navigate("/Profile");
       }, 1000);
     } catch (error) {
       console.error("Error signing in with email and password:", error);
-      toast.error(error.message, { position: "top-center" , margi: "1rem" });
+      toast.error(error.message, { position: "top-center" });
     }
   };
 
   return (
-    <>
-      <Nav/>
 
-      <section className="w-screen h-screen flex flex-col items-center justify-center">
-        <form onSubmit={handleLogin} className="w-[80%] h-auto flex flex-col justify-center gap-[2rem] p-4 max-[450px]:w-full md:w-[70%] lg:w-[60%] lg:p-8 xl:w-[30%]">
+
+      <section className="w-screen h-[100dvh] relative flex flex-col items-center justify-center">
+        <Nav></Nav>
+        <form
+          onSubmit={handleLogin}
+          className="w-[80%] h-full flex flex-col justify-center gap-[2rem] p-4 max-[450px]:w-full md:w-[70%] lg:w-[60%] lg:p-8 xl:w-[30%]"
+        >
           <h1 className="font-bold text-[2rem]">
-            Hey ,<br className="md:hidden"/>
+            Hey ,<br className="md:hidden" />
             Login now
           </h1>
-          <h3 className="text-[#747474]">No account? Register here.</h3>
+          <h3 className="text-[#747474]">
+            No account? <Link to="/Register">Register here.</Link>
+          </h3>
           <input
             type="text"
             className="w-full bg-[#eee] px-4 py-2 rounded-[5px] outline-none"
@@ -56,10 +63,8 @@ export default function Login() {
           </button>
 
           <GoogleButton />
-
-         
         </form>
       </section>
-    </>
+
   );
 }
