@@ -1,4 +1,4 @@
-import React from "react";
+
 import { House, UserRound, Search, MessageCircle } from "lucide-react";
 
 import { Link } from "react-router-dom";

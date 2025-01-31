@@ -71,7 +71,7 @@ export default function Profile() {
 
           {/* Main Content */}
 
-          <div className="bg-white w-full max-lg:w-full h-full rounded-t-[25px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col">
+          <div className="bg-white w-full max-lg:w-full h-full rounded-t-[25px] flex flex-col">
             {/* Tabs Navigation */}
             <div className="w-full p-4 border-b border-gray-300">
               <div className="flex space-x-4">
@@ -111,7 +111,7 @@ export default function Profile() {
             </div>
 
             {/* Tabs Content */}
-            <div className="border-b-2 border-[#eef0f0] max-md:h-full h-[70%] w-full py-8 px-8 max-md:p-4">
+            <div className="max-md:h-full h-[70%] w-full py-8 px-8 max-md:p-4">
               {activeTab === "tab1" && (
                 <div className="grid grid-cols-2 gap-8 h-auto max-md:flex max-md:flex-col">
                   <div className="flex flex-col gap-2">
@@ -157,11 +157,19 @@ export default function Profile() {
                       value={userDetails?.email || "N/A"}
                     />
                   </div>
+                  <div className="w-full p-8 max-md:pt-4 max-md:p-0 max-md:border-t-1 max-md:border-[#eee]">
+                    <button
+                      onClick={handLogout}
+                      className="relative cursor-pointer overflow-hidden rounded bg-[#181940] px-[2rem] py-2.5 text-white transition-all duration-200 hover:bg-red-500 hover:ring-offset-2 active:ring-2 active:ring-neutral-800"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 </div>
               )}
 
               {activeTab === "tab2" && (
-                <div className="h-[30vh] flex items-center justify-center">
+                <div className="h-auto flex flex-col items-center justify-center">
                   <p>No appointments available</p>
                 </div>
               )}
@@ -171,15 +179,6 @@ export default function Profile() {
                 <p>Content for Tab 3</p>
               </div>
             )} */}
-            </div>
-
-            <div className="w-full p-8 max-md:p-4">
-              <button
-                onClick={handLogout}
-                className="relative cursor-pointer overflow-hidden rounded bg-[#181940] px-[2rem] py-2.5 text-white transition-all duration-200 hover:bg-red-500 hover:ring-offset-2 active:ring-2 active:ring-neutral-800"
-              >
-                Logout
-              </button>
             </div>
           </div>
         </div>
