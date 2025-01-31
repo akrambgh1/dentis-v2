@@ -1,59 +1,43 @@
-/* eslint-disable no-unused-vars */
-import { auth, db } from "./firebase";
-import { setDoc, doc } from "firebase/firestore";
-import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
-export default function GoogleButton() {
-  const navigate = useNavigate();
-
-  const handleGRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const provider = new GoogleAuthProvider();
-
-      // Detect mobile browser
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        // Use redirect for mobile devices
-        await signInWithRedirect(auth, provider);
-        getRedirectResult(auth).then((result) => {
-          if (result?.user) {
-            saveUserToFirestore(result);
-          }
-        });
-      } else {
-        // Use popup for desktop
-        signInWithPopup(auth, provider).then((result) => {
-          if (result.user) {
-            saveUserToFirestore(result);
-          }
-        });
-      }
-    } catch (error) {
-      toast.error(error.message, { position: "top-center" });
-    }
-  };
-
-  const saveUserToFirestore = async (result) => {
-    try {
-      await setDoc(doc(db, "users", result.user.uid), {
-        email: result.user.email,
-        Lastname: result._tokenResponse.lastName,
-        Firstname: result._tokenResponse.firstName,
-        photo: result.user.photoURL,
-        phoneNumber: result.user.phoneNumber,
-      });
-      toast.success("User registered successfully", { position: "top-center" });
-      setTimeout(() => {
-        navigate("/Profile");
-      }, 1000);
-    } catch (error) {
-      toast.error("Failed to save user data", { position: "top-center" });
-    }
-  };
+import { auth, db } from "./firebase"; 
+import { setDoc, doc } from "firebase/firestore"; 
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"; 
+import { toast } from "react-toastify"; 
+import { useNavigate } from "react-router-dom"; 
+export default function GoogleButton() { 
+      const navigate = useNavigate(); 
+     
+const handleGRegister = async (e) => { 
+    e.preventDefault(); 
+    try { 
+       
+    const provider = new GoogleAuthProvider(); 
+       
+    signInWithPopup(auth, provider).then((result) => { 
+      console.log(result) 
+      if (result.user) 
+        setDoc(doc(db, "users", result.user.uid), { 
+          email: result.user.email, 
+          Lastname: result._tokenResponse.lastName, 
+          Firstname: result._tokenResponse.firstName, 
+          photo:result.user.photoURL, 
+          phoneNumber: result.user.phoneNumber, 
+         
+   
+       
+        }); {setTimeout(() => { 
+        navigate("/Profile"); 
+  }, 1000);;toast.success("user registered successfully", { position: "top-center", });} 
+    }) 
+        
+        
+      } 
+       
+       
+     catch (error) { 
+      toast.error(error.message,{position:"top-center",}); 
+    } 
+     
+  }; 
 
   return (
     <button
