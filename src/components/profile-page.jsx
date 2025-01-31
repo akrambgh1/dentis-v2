@@ -49,12 +49,12 @@ export default function Profile() {
   }
 
   return (
-    <section className="w-screen h-screen bg-white relative flex items-center justify-center">
-      <div className="bg-[#000000] w-full h-[30vh] absolute top-0"></div>
+    <section className="w-screen h-screen bg-[#181940] relative flex flex-col items-center justify-center">
+      <div className="bg-[#181940] w-full h-[40vh]"></div>
 
-      <div className="w-[90%] h-[80vh] z-0 pt-[5rem] flex gap-[2rem] p-4 max-lg:flex-col max-lg:items-center max-lg:pt-4 max-md:h-auto">
+      <div className="w-full h-full z-0 flex gap-[2rem] max-lg:flex-col max-lg:items-center ">
         {/* Sidebar */}
-
+{/* 
         <div className="h-[40vh] max-md:h-auto w-[30%] p-4 flex flex-col gap-[1rem] items-center bg-white rounded-[5px] shadow max-lg:w-full">
           <img
             className="rounded-full h-24 w-24 object-cover"
@@ -65,11 +65,11 @@ export default function Profile() {
             Welcome, {userDetails?.Firstname || "Guest"}{" "}
             {userDetails?.Lastname || ""}
           </h1>
-        </div>
+        </div> */}
 
         {/* Main Content */}
 
-        <div className="bg-white w-[70%] max-lg:w-full h-full rounded-[5px] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex flex-col">
+        <div className="bg-white w-full max-lg:w-full h-full rounded-t-[25px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col">
 
           {/* Tabs Navigation */}
           <div className="w-full p-4 border-b border-gray-300">
@@ -77,9 +77,9 @@ export default function Profile() {
               
               <button
                 onClick={() => setActiveTab("tab2")}
-                className={`p-2 cursor-pointer max-md:text-[.75rem] ${
+                className={`p-2 cursor-pointer max-md:text-[1rem] font-[500] ${
                   activeTab === "tab2"
-                    ? "border-b-2 border-[#5bc8a8] text-[#5bc8a8]"
+                    ? "border-b-2 border-[#181940] text-[#181940]"
                     : "text-gray-500"
                 }`}
               >
@@ -88,13 +88,13 @@ export default function Profile() {
               
               <button
                 onClick={() => setActiveTab("tab1")}
-                className={`p-2 cursor-pointer max-md:text-[.75rem] ${
+                className={`p-2 cursor-pointer max-md:text-[1rem] font-[500] ${
                   activeTab === "tab1"
-                    ? "border-b-2 border-[#5bc8a8] text-[#5bc8a8]"
+                    ? "border-b-2 border-[#181940] text-[#181940]"
                     : "text-gray-500"
                 }`}
               >
-                Account settings
+                Personal info
               </button>
 
 
@@ -112,41 +112,41 @@ export default function Profile() {
           </div>
 
           {/* Tabs Content */}
-          <div className="border-b-2 border-[#eef0f0] max-md:h-full w-full py-8 px-8 max-md:p-4">
+          <div className="border-b-2 border-[#eef0f0] max-md:h-full h-[70%] w-full py-8 px-8 max-md:p-4">
             {activeTab === "tab1" && (
               <div className="grid grid-cols-2 gap-8 h-auto max-md:flex max-md:flex-col">
                 <div className="flex flex-col gap-2">
-                  <h1 className="max-md:text-[.75rem]">First Name</h1>
+                  <h1 className="max-md:text-[1rem] text-[#181940] font-[500]">First Name</h1>
                   <input
                     disabled
-                    className="bg-[#fbfdff] rounded-[5px] uppercase py-2 px-4 border-[1px] border-[#ddd] outline-none select-none max-md:text-[.75rem]"
+                    className="bg-[#f7f7f7] rounded-[5px] text-[#1e1e1e] py-2 px-4 outline-none select-none max-md:text-[.85rem] font-[500]"
                     value={userDetails?.Firstname || "N/A"}
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h1 className="max-md:text-[.75rem]">Last Name</h1>
+                  <h1 className="max-md:text-[1rem] text-[#181940] font-[500]">Last Name</h1>
                   <input
                     disabled
-                    className="bg-[#fbfdff] rounded-[5px] uppercase py-2 px-4 border-[1px] border-[#ddd] outline-none select-none max-md:text-[.75rem]"
+                    className="bg-[#f7f7f7] rounded-[5px] text-[#1e1e1e] py-2 px-4 outline-none select-none max-md:text-[.85rem] font-[500]"
                     value={userDetails?.Lastname || "N/A"}
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h1 className="max-md:text-[.75rem]">Phone Number</h1>
+                  <h1 className="max-md:text-[1rem] text-[#181940] font-[500]">Phone Number</h1>
                   <input
                     disabled
-                    className="bg-[#fbfdff] rounded-[5px] uppercase py-2 px-4 border-[1px] border-[#ddd] outline-none select-none max-md:text-[.75rem]"
+                    className="bg-[#f7f7f7] rounded-[5px] text-[#1e1e1e] py-2 px-4 outline-none select-none max-md:text-[.85rem] font-[500]"
                     value={userDetails?.Phone|| "N/A"}
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h1 className="max-md:text-[.75rem]">E-mail address</h1>
+                  <h1 className="max-md:text-[1rem] text-[#181940] font-[500]">E-mail address</h1>
                   <input
                     disabled
-                    className="bg-[#fbfdff] rounded-[5px] py-2 px-4 border-[1px] border-[#ddd] outline-none select-none max-md:text-[.75rem]"
+                    className="bg-[#f7f7f7] rounded-[5px] text-[#1e1e1e] py-2 px-4 outline-none select-none max-md:text-[.85rem] font-[500]"
                     value={userDetails?.email || "N/A"}
                   />
                 </div>
@@ -167,7 +167,7 @@ export default function Profile() {
           </div>
 
           <div className="w-full p-8 max-md:p-4">
-          <button onClick={handLogout} className="relative cursor-pointer overflow-hidden rounded bg-[#ff2b2b] px-[2rem] py-2.5 text-white transition-all duration-200 hover:bg-red-500 hover:ring-offset-2 active:ring-2 active:ring-neutral-800">Logout</button>
+          <button onClick={handLogout} className="relative cursor-pointer overflow-hidden rounded bg-[#181940] px-[2rem] py-2.5 text-white transition-all duration-200 hover:bg-red-500 hover:ring-offset-2 active:ring-2 active:ring-neutral-800">Logout</button>
           </div>
         </div>
       </div>
